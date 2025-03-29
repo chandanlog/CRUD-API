@@ -1,73 +1,119 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# 🚀 Backend CRUD API (NestJS + MySQL)
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is the **backend API** for a **CRUD (Create, Read, Update, Delete) application** built with **NestJS** and **MySQL**. It provides RESTful endpoints for managing resources.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## 🌟 Features
+✅ RESTful API with NestJS  
+✅ CRUD operations (Create, Read, Update, Delete)  
+✅ MySQL database integration  
+✅ Data validation with `class-validator`  
+✅ Environment variable support (`.env`)  
+✅ Clean and modular architecture  
 
-## Description
+---
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## 🛠️ Tech Stack
+- **NestJS** - Progressive Node.js framework  
+- **MySQL** - Relational database  
+- **TypeORM** - ORM for database management  
+- **Swagger** - API documentation  
+- **Docker** (optional) - Containerization  
 
-## Installation
+---
 
-```bash
-$ npm install
+## 📦 Installation & Setup
+
+### **1️⃣ Clone the Repository**
+```sh
+git clone https://github.com/your-username/repo-name.git
+cd backend
 ```
 
-## Running the app
-
-```bash
-# development
-$ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
+### **2️⃣ Install Dependencies**
+```sh
+npm install
 ```
 
-## Test
+### **3️⃣ Set Up Environment Variables**
+Create a **`.env`** file and add:
+```ini
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=yourpassword
+DB_NAME=crud_mysql_dev
+PORT=5000
+JWT_SECRET=your-secret-key
+```
+(Replace with your actual database credentials)
 
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+### **4️⃣ Run Database Migrations (if using TypeORM)**
+```sh
+npm run migration:run
 ```
 
-## Support
+### **5️⃣ Start the Development Server**
+```sh
+npm run start:dev
+```
+🚀 Your API will be live at **`http://localhost:5000`**
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+---
 
-## Stay in touch
+## 📌 Folder Structure
+```
+📦 backend
+ ┣ 📂 src
+ ┃ ┣ 📂 modules    # Feature modules (e.g., users, auth)
+ ┃ ┣ 📂 config     # Configuration files
+ ┃ ┣ 📂 database   # Database connection
+ ┃ ┣ 📂 middlewares # Custom middlewares
+ ┃ ┣ 📜 main.ts    # Entry point
+ ┣ 📜 .env         # Environment variables
+ ┣ 📜 package.json
+ ┣ 📜 README.md
+```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+---
 
-## License
+## ⚡ API Endpoints
+| Action  | Method | Endpoint |
+|---------|--------|----------------|
+| Get All Users | GET | `/api/users` |
+| Get User by ID | GET | `/api/users/:id` |
+| Create User | POST | `/api/users` |
+| Update User | PUT | `/api/users/:id` |
+| Delete User | DELETE | `/api/users/:id` |
 
-Nest is [MIT licensed](LICENSE).
+---
+
+## 🐳 Docker (Optional)
+### **Run Backend in Docker**
+```sh
+docker-compose up --build
+```
+
+---
+
+## 🚀 Deployment
+### **To Deploy on Render**
+1️⃣ **Push code to GitHub**  
+2️⃣ **Go to [Render](https://render.com/)**  
+3️⃣ **Create a new Web Service**  
+4️⃣ **Set up environment variables**  
+5️⃣ **Deploy 🚀**  
+
+---
+
+## 🤝 Contributing
+1. Fork the repo  
+2. Create a new branch: `git checkout -b feature-branch`  
+3. Commit changes: `git commit -m "Added new feature"`  
+4. Push: `git push origin feature-branch`  
+5. Open a Pull Request  
+
+---
+
+## 📜 License
+This project is **MIT licensed**.  
+
