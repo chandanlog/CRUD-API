@@ -1,0 +1,21 @@
+# Ignore dependencies
+node_modules
+
+# Ignore build outputs
+dist
+build
+
+# Ignore environment files (security reasons)
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# Ignore log files
+*.log
+
+# Ignore editor/IDE files
+.idea
+.vscode
+.DS_Store
